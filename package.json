@@ -1,0 +1,24 @@
+{
+  "name": "synth",
+  "version": "1.0.0",
+  "description": "react native syth",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-plugin-react": "^7.21.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeritzik/Synth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joeritzik/Synth/issues"
+  },
+  "homepage": "https://github.com/joeritzik/Synth#readme"
+}
