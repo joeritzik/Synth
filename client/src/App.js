@@ -3,14 +3,20 @@ import React from 'react'
 
 // import SynthPad from './Components/SynthPad'
 import TonePad from './Components/TonePad'
+// import { Tone } from 'tone/build/esm/core/Tone';
 
 function App() {
 
-
-
+  const handleTouchStart = () => {
+    document.getElementById('welcome').remove();
+  };
 
   return (
-    <div className="App App-body">
+    <div className="App-body">
+      <div id="welcome" className="welcome" onTouchStart={handleTouchStart}>
+        <h1>Welcome to Synth</h1>
+        <p>Press Anywhere to Play!</p>
+      </div>
         <TonePad />
     </div>
   );

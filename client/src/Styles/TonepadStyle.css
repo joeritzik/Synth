@@ -2,11 +2,18 @@ h1 {
   color: pink;
 }
 
-.synthContainer {
+.SynthContainer {
   width: 100%;
   height: 100%;
   overflow: hidden;
   overflow-y: hidden;
+  touch-action: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  background-color: 282c34;
+  
 }
 
 .pad {
@@ -15,17 +22,276 @@ h1 {
   height: 500px;
   max-width: 300px;
   max-height: 500px;
+  box-shadow:inset 0 0 20px #000000;
 }
 
 .osc-type {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   background-color: white;
-
+  border-radius: 50%;
+  margin: 15px 20px 0px 20px;
+  border-width: 0ch;
+  box-shadow:inset 0 0 3px #000000;
+  font-size: 12px;
 }
 
 .effect-type {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   background-color: white;
+  border-radius: 50%;
+  margin: 15px 20px 15px 20px;
+  border-width: 0ch;
+  font-size: 10px;
+  box-shadow:inset 0 0 3px #000000;
+  text-align: center;
 }
+
+.record {
+  background-color: red;
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border:0px;
+  margin-right: 10px;
+}
+
+.stoprecord {
+  background-color: red;
+  margin-top: 10px;
+  width: auto;
+  height: 30px;
+  border-radius: 5px;
+  border:0px;
+}
+
+.play {
+  background-color: greenyellow;
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border:0px;
+  margin-right: 10px;
+}
+
+.stop-play {
+  background-color: rgb(47, 179, 255);
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border:0px;
+}
+
+.main-button:focus {
+  border: 0px;
+  outline: 0px;
+}
+
+.download {
+  margin-top: 10px;
+  width: auto;
+  height: 30px;
+  border-radius: 5px;
+  border:0px;
+  background-color: white;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pointer {
+
+  visibility: hidden;
+  position: absolute;
+  background: #fff;
+  height: 20px;
+  width: 20px;
+  border: 0px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
+  
+}
+
+@keyframes playing {
+  0% {
+    background-color: greenyellow;
+    /* box-shadow: 0 0 3px #a8052e; */
+  }
+  50% {
+    background-color: rgb(228, 230, 225);
+    /* box-shadow: 0 0 10px #c4536b; */
+  }
+  100% {
+    background-color: greenyellow;
+    /* box-shadow: 0 0 3px #a8052e; */
+  }
+}
+
+@keyframes recording {
+  0% {
+    background-color: red;
+    /* box-shadow: 0 0 3px #a8052e; */
+  }
+  50% {
+    background-color: rgb(236, 179, 179);
+    /* box-shadow: 0 0 10px #c4536b; */
+  }
+  100% {
+    background-color: red;
+    /* box-shadow: 0 0 3px #a8052e; */
+  }
+}
+
+@keyframes pulse {
+  0% {
+    border: 0px solid #fff;
+    opacity: 1;
+  }
+  100% {
+    border: 30px solid #fff0;
+    opacity: 0;
+  }
+}
+
+.fade {
+  position: absolute;
+  animation: pulse 0.50s linear infinite;
+}
+
+
+/* TESTING 123 */
+
+
+/* input{display:none}
+
+body{
+background-color: #555;
+background-size: 20px 20px;
+color:white;
+font-family:sans-serif;
+font-size:27px;
+}
+.on,.off{
+position:absolute;
+text-align:center;
+-webkit-text-shadow:inset 1px 1px 1px black;
+width:100%;
+}
+.on{
+color:#bbb;
+top:8px;
+  -webkit-transition:all 0.1s;
+font-family:sans-serif
+}
+.off{
+bottom:5px;
+  -webkit-transition:all 0.1s;
+transform:scaleY(0.85);
+}
+.but{
+	background-color:#272727;
+	border-radius:100px 100px 100px 100px / 100px 100px 75px 75px;
+	border-bottom-width:0px;
+	box-shadow:
+		inset 8px 6px 5px -7px rgba(0,0,0,1)
+		,inset -8px 6px 5px -7px rgba(0,0,0,1)
+		,inset 0 -3px 2px -2px rgba(200,200,200,.5)
+		,0 3px 3px -2px rgba(0,0,0,1)
+		,inset 0 -230px 60px -200px rgba(255,255,255,.2)
+		,inset 0 220px 40px -200px rgba(0,0,0,.3);
+	display:block;
+	font-size:10px;
+	height:45px;
+	position:relative;
+	-webkit-transition:all 0.2s;
+	width:47px;
+}
+.back{
+	background-color:black;
+	background-image:
+		-webkit-linear-gradient(0deg, transparent 30%, transparent 70%)
+		,-webkit-linear-gradient(0deg, rgba(150,150,150,0) 30%, rgba(150,150,150,.1) 50%, rgba(150,150,150,0) 70%);
+	border-radius:105px;
+	box-shadow:
+		30px 30px 30px -20px rgba(0,0,0,.3)
+		,-30px 30px 30px -20px rgba(0,0,0,.3)
+		,0 30px 30px 0px rgba(0,0,0,.3)
+		,inset 0 -1px 0 0 #333;
+	box-sizing:border-box;
+	height:52px;
+	padding:4px 4px;
+	-webkit-transition:all 0.2s;
+	width:52px;
+}
+
+
+.round{
+	background:black;
+	background:-webkit-linear-gradient(270deg, #444 ,  #222);
+	border-radius:130px;
+	-webkit-box-sizing:border-box;
+	box-shadow:
+		0px 0px 0px 8px rgba(0,0,0,.1)
+		,0px 0px 3px 1px rgba(0,0,0,1)
+		,inset 0 8px  3px -8px rgba(255,255,255,.4);
+	height:65px;
+	margin:5px auto;
+	padding:5px;
+	width:65px;
+}
+
+input:checked + .back .on,input:checked + .back .off{
+	text-shadow:inset 1px 1px 1px black;
+}
+input:checked + .back .on{
+	color:#999;
+	top:10px;
+	-webkit-transform:scaleY(0.85);
+}
+input:checked + .back .off{
+	color:#bbb;
+	bottom:5px;
+	-webkit-transform:scaleY(1);
+}
+input:checked + .back .but{
+	background:#232323;
+	background-image:-webkit-radial-gradient(50% 15%,circle closest-corner,rgba(0,0,0,.3) ,rgba(0,0,0,0));
+	border-radius:100px 100px 100px 100px / 75px 75px 100px 100px;
+	box-shadow:
+		inset 8px -4px 5px -7px rgba(0,0,0,1)
+		,inset -8px -4px 5px -7px rgba(0,0,0,1)
+		, 0 -3px 8px -4px rgba(250,250,250,.4)
+		,inset 0 3px 4px -2px rgba(10,10,10,1)
+		,inset 0 280px 40px -200px rgba(0,0,0,.2)
+		,inset 0 -200px 40px -200px rgba(180,180,180,.2);
+	margin-top:5px;
+}
+input:checked + .back{
+	background-image:
+		-webkit-linear-gradient(90deg, black 30%, transparent 70%)
+		,-webkit-linear-gradient(180deg, rgba(250,250,250,0) 0%, rgba(250,250,250,.4) 50%, rgba(150,150,150,0) 100%);
+	box-shadow:
+		30px 30px 30px -20px rgba(0,0,0,.1)
+		,-30px 30px 30px -20px rgba(0,0,0,.1)
+		,0 30px 30px 0px rgba(0,0,0,.2)
+		,inset 0 1px 2px 0 rgba(0,0,0,.6);
+	padding:2px 4px;
+}
+.l,.r{margin:0 auto;text-align:center}
+.round,#onoff,.back,.but,.on,.off{user-select: none}
+
+.realbuttons {
+  display: flex;
+}
+
+.button {
+  margin-right: 20px;
+} */
