@@ -4,11 +4,12 @@ Synth was designed to allow a user to create music on the go by simply choosing 
 ![](screenshots/synth.png)
 
 # Getting Started
-Clone this repo to your local machine
-Navigate to the client folder, and run npm install
-Start by using the npm start command
-Thats it!
+-Clone this repo to your local machine
+-Navigate to the client folder, and run npm install
+-Start by using the npm start command
+-Thats it!
 
 # Tech Stack
-React and Tone.js
+-React
+-Tone.js
 
