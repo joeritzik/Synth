@@ -255,6 +255,7 @@ const handleVerb = () => {
           player.playbackRate = 1;
           player.loop = true;
           Tone.loaded().then(() => {
+            // eslint-disable-next-line no-unused-expressions
             player.start
           })
         }
