@@ -1,9 +1,7 @@
 import './App.css';
 import React from 'react'
 
-// import SynthPad from './Components/SynthPad'
 import TonePad from './Components/TonePad'
-// import { Tone } from 'tone/build/esm/core/Tone';
 
 function App() {
 

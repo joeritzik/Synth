@@ -10,26 +10,20 @@ function TonePad() {
   const [gain, setGain] = useState(null);
   const [osc, setOsc] = useState(null);
   const [oscType, setOscType] = useState('sine');
-  
-  // const [effect, setEffect] = useState(null);
   const [filterLow, setFilterLow] = useState(null);
-
   const [recorder, setRecorder] = useState(null);
   const [file, setFile] = useState(null);
   const [player, setPlayer] = useState(null);
-
   const [dist, setDist] = useState(null);
   const [phase, setPhase] = useState(null);
   const [delay, setDelay] = useState(null);
   const [verb, setVerb] = useState(null);
-
   const recordButton = useRef(null);
   const playButton = useRef(null);
   const distButton = useRef(null);
   const phaseButton = useRef(null);
   const delayButton = useRef(null);
   const verbButton = useRef(null);
-
   const sineButton = useRef(null);
   const sqButton = useRef(null);
   const sawButton = useRef(null);
@@ -131,7 +125,6 @@ const handleVerb = () => {
 
     //---------Handle Download
     const handleDownload = () => {
-      //use this for download file --------------------
       if (file) {
         const anchor = document.createElement("a");
         anchor.download = "recording.webm";
@@ -253,13 +246,6 @@ const handleVerb = () => {
     }
   },[recorder]);
 
-    //---USE EFFECT FILE --- find a way to make mp3
-    // useEffect(() => {
-    //   if(file) {
-    //    console.log(file)
-    //   }
-    // },[file]);
-
     //---USE EFFECT PLAYBACK
     useEffect(() => {
       if(file) {
@@ -331,17 +317,11 @@ const handleVerb = () => {
   //------ RETURN
   return (
     <div className="SynthContainer" id="container">
-      {/* <h1>Synth</h1> */}
-   
       <div className="pointer pulse fade" ref={pointer}></div>
-   
       <div>
-      {/* <button id="div-stoprecord" className="stoprecord" onClick={() => handleStopRecording()}>Stop</button> */}
         <button id="div-record" ref={recordButton} className="record main-button" onClick={() => handleRecord()}>Record</button>
         <button id="div-play" ref={playButton} className="play main-button"  onClick={() => handlePlayBack()}>Play</button>
         <button id="div-play" className="stop-play main-button" onClick={() => handleStopPlayback()}>Stop Playback</button>
-        {/* <button id="div-stopefx" className="osc-stopefx" onClick={() => osc.disconnect(effect)}>Stop EFX</button> */}
-
       </div>
       <div>
         <button id="div-sine" ref={sineButton} className="osc-type main-button" onClick={() => handleType('sine')}>Sine</button>
@@ -349,35 +329,12 @@ const handleVerb = () => {
         <button id="div-sawtooth" ref={sawButton} className="osc-type main-button" onClick={() => handleType('sawtooth')}>Saw</button>
         <button id="div-square" ref={triButton} className="osc-type main-button" onClick={() => handleType('triangle')}>Tri</button>
       </div>
-
-{/* <div className="realbuttons">
-      <div>
-        <div className="round button"><input type="checkbox" id="onoff" name="onoff"  />
-        <div className="back button"><label className="but" htmlFor="onoff"><span className="on">I</span><span className="off">0</span></label></div></div>
-      </div>
-      <div>
-        <div className="round button"><input type="checkbox" id="onoff" name="onoff" />
-        <div className="back button"><label className="but" htmlFor="onoff"><span className="on">I</span><span className="off">0</span></label></div></div>
-      </div>
-      <div>
-        <div className="round button"><input type="checkbox" id="onoff" name="onoff" />
-        <div className="back button"><label className="but" htmlFor="onoff"><span className="on">I</span><span className="off">0</span></label></div></div>
-      </div>
-      <div>
-        <div className="round button"><input type="checkbox" id="onoff" name="onoff" />
-        <div className="back button"><label className="but" htmlFor="onoff"><span className="on">I</span><span className="off">0</span></label></div></div>
-      </div>
-</div> */}
-
-
-
       <div>
         <button id="div-dist" ref={distButton} className="effect-type main-button" onClick={() => handleDist()}>Dist</button>
         <button id="div-phase" ref={phaseButton} className="effect-type main-button" onClick={() => handlePhase()}>Phase</button>
         <button id="div-delay" ref={delayButton} className="effect-type main-button" onClick={() => handleDelay()}>Delay</button>
         <button id="div-verb" ref={verbButton} className="effect-type main-button" onClick={() => handleVerb()}>Verb</button>
       </div>
-
       <div id="pad" ref={pad} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} className="pad"></div>
       <button id="div-download" className="download" onClick={() => handleDownload()}>Download</button>
     </div>
